@@ -30,6 +30,11 @@ add_executable(min minimalExample/main.cpp)
 target_link_libraries(min leanstore Threads::Threads)
 target_include_directories(min PRIVATE ${SHARED_INCLUDE_DIRECTORY})
 
+add_executable(bf-bench bf-tree-bench/main.cpp)
+target_link_libraries(bf-bench leanstore Threads::Threads)
+target_include_directories(bf-bench PRIVATE ${SHARED_INCLUDE_DIRECTORY})
+
+
 add_executable(rocksdb_tpcc tpc-c/rocksdb_tpcc.cpp shared/rocksdb.cpp)
 target_link_libraries(rocksdb_tpcc leanstore rocksdb Threads::Threads dl z libbz2.a lz4 snappy zstd uring)
 target_include_directories(rocksdb_tpcc PRIVATE ${SHARED_INCLUDE_DIRECTORY})
@@ -59,3 +64,4 @@ add_executable(lmdb_ycsb ycsb/lmdb_ycsb.cpp)
 target_link_libraries(lmdb_ycsb leanstore lmdb Threads::Threads)
 target_include_directories(lmdb_ycsb PRIVATE ${SHARED_INCLUDE_DIRECTORY})
 # sudo apt-get install liblmdb-dev
+
